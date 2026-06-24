@@ -118,7 +118,7 @@ export const INITIAL_SPOTS: StudySpot[] = [
     lng: 62,
     foodNearby: true,
     tags: ['Sky Canopy', 'Glass Studypods', 'Stunning Architecture', 'McAlister Views'],
-    imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800'
+    imageUrl: 'https://images.unsplash.com/photo-1504275107627-0c2ba7a7fded?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 'greenbaum-courtyard',
@@ -220,6 +220,6 @@ export const INITIAL_SPOTS: StudySpot[] = [
     lng: 36,
     foodNearby: true,
     tags: ['Sound Pods', 'Team Meetings', 'Food court adjacent', 'Active life'],
-    imageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800'
+    imageUrl: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800'
   }
 ];

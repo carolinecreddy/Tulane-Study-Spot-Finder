@@ -66,9 +66,11 @@ export const SpotCard: React.FC<SpotCardProps> = ({
   onSelect,
 }) => {
   const [imgSrc, setImgSrc] = React.useState(spot.imageUrl);
+  const [imgError, setImgError] = React.useState(false);
 
   React.useEffect(() => {
     setImgSrc(spot.imageUrl);
+    setImgError(false);
   }, [spot.imageUrl]);
 
   // Calculate average rating dynamically
@@ -119,15 +121,29 @@ export const SpotCard: React.FC<SpotCardProps> = ({
       <div>
         {/* Banner with thumbnail and Favorite Button */}
         <div className="relative h-44 w-full overflow-hidden bg-slate-100">
-          <img
-            src={imgSrc}
-            alt={spot.name}
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            onError={() => {
-              setImgSrc('https://images.unsplash.com/photo-1498243691581-b145c3f54a5c?auto=format&fit=crop&q=80&w=800');
-            }}
-          />
+          {imgError ? (
+            <div className="w-full h-full bg-gradient-to-br from-slate-800 to-slate-950 flex flex-col items-center justify-center p-4">
+              <div className="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-2 border border-emerald-500/20">
+                <span className="text-lg">📍</span>
+              </div>
+              <span className="text-xs font-semibold tracking-wider uppercase text-slate-300">Tulane Study Spot</span>
+              <span className="text-[10px] text-slate-400 mt-1 text-center line-clamp-1">{spot.name}</span>
+            </div>
+          ) : (
+            <img
+              src={imgSrc}
+              alt={spot.name}
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              onError={() => {
+                if (imgSrc === 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5c?auto=format&fit=crop&q=80&w=800') {
+                  setImgError(true);
+                } else {
+                  setImgSrc('https://images.unsplash.com/photo-1498243691581-b145c3f54a5c?auto=format&fit=crop&q=80&w=800');
+                }
+              }}
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
 
           {/* Favorite heart icon absolute */}

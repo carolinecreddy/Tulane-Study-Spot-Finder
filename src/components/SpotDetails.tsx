@@ -27,9 +27,11 @@ export const SpotDetails: React.FC<SpotDetailsProps> = ({
   isSupabaseActive,
 }) => {
   const [imgSrc, setImgSrc] = useState(spot.imageUrl);
+  const [imgError, setImgError] = useState(false);
 
   useEffect(() => {
     setImgSrc(spot.imageUrl);
+    setImgError(false);
   }, [spot.imageUrl]);
 
   const [rating, setRating] = useState(5);
@@ -167,16 +169,30 @@ export const SpotDetails: React.FC<SpotDetailsProps> = ({
       {/* LEFT COLUMN: Visual Media & Key Indicators */}
       <div className="md:w-5/12 bg-slate-900 text-white relative flex flex-col justify-between min-h-[350px] md:min-h-0">
         {/* Spot Image */}
-        <div className="absolute inset-0">
-          <img
-            src={imgSrc}
-            alt={spot.name}
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-cover opacity-70"
-            onError={() => {
-              setImgSrc('https://images.unsplash.com/photo-1498243691581-b145c3f54a5c?auto=format&fit=crop&q=80&w=800');
-            }}
-          />
+        <div className="absolute inset-0 bg-slate-950">
+          {imgError ? (
+            <div className="w-full h-full bg-gradient-to-br from-slate-900 to-slate-950 flex flex-col items-center justify-center p-6 opacity-80">
+              <div className="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-3 border border-emerald-500/20">
+                <span className="text-xl">📍</span>
+              </div>
+              <span className="text-sm font-semibold tracking-wider uppercase text-slate-300">Tulane Study Spot</span>
+              <span className="text-xs text-slate-400 mt-1 text-center max-w-[200px]">{spot.name}</span>
+            </div>
+          ) : (
+            <img
+              src={imgSrc}
+              alt={spot.name}
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover opacity-70"
+              onError={() => {
+                if (imgSrc === 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5c?auto=format&fit=crop&q=80&w=800') {
+                  setImgError(true);
+                } else {
+                  setImgSrc('https://images.unsplash.com/photo-1498243691581-b145c3f54a5c?auto=format&fit=crop&q=80&w=800');
+                }
+              }}
+            />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-950/40" />
         </div>
 
