@@ -417,12 +417,12 @@ export const SpotDetails: React.FC<SpotDetailsProps> = ({
         <div className="border-t border-slate-150 pt-6 mt-2">
           <div className="flex justify-between items-start mb-3">
             <div>
-              <h4 className="font-sans font-bold text-sm text-slate-800">Add Spot Report / Review</h4>
-              <p className="text-[11px] text-slate-400">Share your latest on-site findings with other Green Wave students.</p>
+              <h4 className="font-sans font-bold text-sm text-slate-800">Write a review</h4>
+              <p className="text-[11px] text-slate-400">Share your on-site findings with other students.</p>
             </div>
             {isSupabaseActive && (
               <span className="text-[9px] bg-sky-50 text-sky-800 px-2 py-0.5 rounded border border-sky-100 flex items-center gap-1 font-mono">
-                <ShieldCheck className="w-3 h-3" /> Live DB Sync
+                <ShieldCheck className="w-3 h-3" /> Connected
               </span>
             )}
           </div>

@@ -133,16 +133,16 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               <>
                 <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-slate-700 block">Supabase Connection Active</span>
-                  Syncing with live PostgreSQL student databases on your private cloud instance.
+                  <span className="font-bold text-slate-700 block">Connected: Reviews and favorites are saving online.</span>
+                  Logged-in student features are synchronizing in real time.
                 </div>
               </>
             ) : (
               <>
                 <HelpCircle className="w-4 h-4 text-emerald-700 flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-slate-700 block">Offline Guest Sandbox</span>
-                  No online database configured. All tools are unlocked and will save locally on your browser.
+                  <span className="font-bold text-slate-700 block">Demo mode: Your data saves on this browser only.</span>
+                  All interactive features are unlocked for local evaluation.
                 </div>
               </>
             )}

@@ -225,7 +225,7 @@ export default function App() {
                 className="bg-emerald-800 hover:bg-emerald-700 hover:scale-103 text-white border border-emerald-700 px-4.5 py-2 rounded-xl text-xs font-semibold shadow-sm transition-all flex items-center gap-1.5"
               >
                 <User className="w-4 h-4" />
-                <span>Student login</span>
+                <span>Sign in</span>
               </button>
             )}
           </div>
@@ -329,7 +329,7 @@ export default function App() {
                 }`}
               >
                 <Heart className={`w-3.5 h-3.5 ${showFavoritesOnly ? 'fill-rose-600' : ''}`} />
-                <span>Favorites ({favorites.length})</span>
+                <span>Saved favorites ({favorites.length})</span>
               </button>
             </div>
 

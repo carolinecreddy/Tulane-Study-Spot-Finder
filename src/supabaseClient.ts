@@ -141,57 +141,7 @@ export const studySpotService = {
     return userStr ? JSON.parse(userStr) : null;
   },
 
-  signUp: async (email: string, name: string) => {
-    if (isSupabaseConfigured && realSupabaseClient) {
-      const { data, error } = await realSupabaseClient.auth.signUp({
-        email,
-        password: 'tulane-student-bypass-secure!', // standard password for study spot utility
-        options: {
-          data: { name }
-        }
-      });
-      if (error) throw error;
-      if (data?.user) {
-        return {
-          id: data.user.id,
-          email: data.user.email || '',
-          name: name
-        };
-      }
-    }
-    // Offline SignUp
-    const mockUser = { id: `user-${Math.random().toString(36).substr(2, 9)}`, email, name };
-    localStorage.setItem(LOCAL_USER_KEY, JSON.stringify(mockUser));
-    return mockUser;
-  },
 
-  signIn: async (email: string) => {
-    if (isSupabaseConfigured && realSupabaseClient) {
-      const { data, error } = await realSupabaseClient.auth.signInWithPassword({
-        email,
-        password: 'tulane-student-bypass-secure!'
-      });
-      if (error) {
-        // If login failed, let's auto sign-up/in for a premium frictionless experience if desired
-        throw error;
-      }
-      if (data?.user) {
-        return {
-          id: data.user.id,
-          email: data.user.email || '',
-          name: data.user.user_metadata?.name || email.split('@')[0]
-        };
-      }
-    }
-    // Offline SignIn
-    const mockUser = {
-      id: `user-dev-local`,
-      email,
-      name: email.split('@')[0].toUpperCase() || 'Tulane Student'
-    };
-    localStorage.setItem(LOCAL_USER_KEY, JSON.stringify(mockUser));
-    return mockUser;
-  },
 
   sendOtp: async (email: string): Promise<boolean> => {
     if (isSupabaseConfigured && realSupabaseClient) {

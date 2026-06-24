@@ -1,5 +1,7 @@
 # Tulane Study Spot Finder (Capstone Edition)
 
+Live Site: [paste deployed site link here]
+
 Discover, explore, and share the absolute best study locations across Tulane University's campus. This interactive, full-stack web application is designed specifically for students to find study spaces suited to their exact needs—whether looking for silent reading, collaborative whiteboard rooms, plentiful charging ports, or nearby fuel (like PJ's Coffee!).
 
 ## 🌟 Key Features
@@ -15,7 +17,7 @@ Discover, explore, and share the absolute best study locations across Tulane Uni
 *   **Gemini AI Summarization Endpoint**: Tap into Google’s advanced Gemini 3.5 Flash model directly from our Express backend router. With a single click, it synthesizes all real, anonymous student reviews for any spot, rendering a 3-bullet core pulse overview.
 *   **Dual-Persistence Sync (Supabase PostgreSQL + Sandbox Local Storage)**: 
     *   **Supabase Active**: Synchronizes student reports, user sessions, and favorites in real-time with durable cloud-hosted tables.
-    *   **Sandbox Fallback**: If keys are missing, the application runs fully offline in "Guest Sandbox Mode" utilizing `localStorage` persistence, ensuring a flawless evaluation experience.
+    *   **Demo Fallback Mode**: If keys are missing, the application runs fully offline with secure local browser persistence, saving your data on this browser only.
 *   **Safe OTP Student Authentication**: Eliminates insecure passwords. Students register or sign in securely by requesting a 6-digit one-time code sent directly to their email.
 *   **Suggest a New Spot**: Empower the community! Signed-in students can submit new spots (with custom metrics and building landmarks) that sync directly with the campus directory.
 
