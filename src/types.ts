@@ -10,8 +10,8 @@ export interface StudySpot {
   foodNearby: boolean;
   hours: string;
   locationDetails: string;
-  lat: number; // custom map X percentage (0 to 100)
-  lng: number; // custom map Y percentage (0 to 100)
+  lat: number; // real latitude on Tulane Uptown campus
+  lng: number; // real longitude on Tulane Uptown campus
   tags: string[];
   imageUrl: string;
 }
