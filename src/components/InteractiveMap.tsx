@@ -234,6 +234,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
                       alt={current.name}
                       referrerPolicy="no-referrer"
                       className="w-16 h-16 rounded-lg object-cover border border-slate-100 flex-shrink-0"
+                      onError={(e) => {
+                        e.currentTarget.src = 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5c?auto=format&fit=crop&q=80&w=800';
+                      }}
                     />
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-start gap-1">

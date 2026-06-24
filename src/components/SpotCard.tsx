@@ -65,6 +65,12 @@ export const SpotCard: React.FC<SpotCardProps> = ({
   onToggleFavorite,
   onSelect,
 }) => {
+  const [imgSrc, setImgSrc] = React.useState(spot.imageUrl);
+
+  React.useEffect(() => {
+    setImgSrc(spot.imageUrl);
+  }, [spot.imageUrl]);
+
   // Calculate average rating dynamically
   const spotReviews = reviews.filter((r) => r.spot_id === spot.id);
   const avgRating =
@@ -114,10 +120,13 @@ export const SpotCard: React.FC<SpotCardProps> = ({
         {/* Banner with thumbnail and Favorite Button */}
         <div className="relative h-44 w-full overflow-hidden bg-slate-100">
           <img
-            src={spot.imageUrl}
+            src={imgSrc}
             alt={spot.name}
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            onError={() => {
+              setImgSrc('https://images.unsplash.com/photo-1498243691581-b145c3f54a5c?auto=format&fit=crop&q=80&w=800');
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
 

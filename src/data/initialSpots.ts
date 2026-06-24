@@ -50,7 +50,7 @@ export const INITIAL_SPOTS: StudySpot[] = [
     lng: 45,
     foodNearby: true,
     tags: ['Food Court Nearby', 'Structural Booths', 'High-speed Connection', 'Bright Atrium'],
-    imageUrl: 'https://images.unsplash.com/photo-1517502884422-41eacef01689?auto=format&fit=crop&q=80&w=800'
+    imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 'freeman-lounge',

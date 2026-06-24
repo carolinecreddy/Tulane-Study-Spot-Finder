@@ -1,6 +1,7 @@
 # Tulane Study Spot Finder (Capstone Edition)
 
 Live Site: [paste deployed site link here]
+Google AI Studio App: https://ai.studio/apps/8d7cbd96-5319-41c4-bf51-1057d34f771b
 
 The Tulane Study Spot Finder is an interactive, full-stack web application designed for students to find and share optimal study locations across Tulane University's campus. Whether searching for silent reading rooms, collaborative whiteboard spaces, plentiful charging ports, or spots near food and coffee, this app helps students find study environments matched to their exact preferences.
 
@@ -27,18 +28,11 @@ The Tulane Study Spot Finder is an interactive, full-stack web application desig
 
 ## 🚀 Environment Variables
 
-Create a `.env` file in the root directory to configure database sync and AI summaries:
-
 ```env
-# Google Gemini API
-GEMINI_API_KEY="your-google-gemini-api-key"
-
 # Supabase Credentials
 VITE_SUPABASE_URL="https://pvyqtinbbncoybsggrqq.supabase.co"
 VITE_SUPABASE_ANON_KEY="sb_publishable_yAdzL2AvhnYoPeRtdJpQ8Q_hERS-WTc"
 ```
-
-*Note: If no Supabase environment variables are provided, the application automatically runs in demo mode using browser local storage.*
 
 ---
 

@@ -26,6 +26,12 @@ export const SpotDetails: React.FC<SpotDetailsProps> = ({
   onTriggerAuth,
   isSupabaseActive,
 }) => {
+  const [imgSrc, setImgSrc] = useState(spot.imageUrl);
+
+  useEffect(() => {
+    setImgSrc(spot.imageUrl);
+  }, [spot.imageUrl]);
+
   const [rating, setRating] = useState(5);
   const [comment, setComment] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -163,10 +169,13 @@ export const SpotDetails: React.FC<SpotDetailsProps> = ({
         {/* Spot Image */}
         <div className="absolute inset-0">
           <img
-            src={spot.imageUrl}
+            src={imgSrc}
             alt={spot.name}
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover opacity-70"
+            onError={() => {
+              setImgSrc('https://images.unsplash.com/photo-1498243691581-b145c3f54a5c?auto=format&fit=crop&q=80&w=800');
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-slate-950/40" />
         </div>
