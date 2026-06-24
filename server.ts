@@ -11,6 +11,52 @@ const PORT = Number(process.env.PORT) || 3000;
 
 app.use(express.json());
 
+// Helper function to handle model generation with retries and fallbacks
+async function generateWithFallback(ai: GoogleGenAI, prompt: string): Promise<string> {
+  const modelsToTry = ["gemini-3.5-flash", "gemini-3.1-flash-lite"];
+  let lastError: any = null;
+
+  for (const model of modelsToTry) {
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      try {
+        console.log(`Attempting summary with model: ${model} (attempt ${attempt}/2)`);
+        const response = await ai.models.generateContent({
+          model: model,
+          contents: prompt,
+        });
+        if (response && response.text) {
+          return response.text;
+        }
+      } catch (err: any) {
+        lastError = err;
+        const errStr = String(err.message || err);
+        console.warn(`Model ${model} attempt ${attempt} failed:`, errStr);
+        
+        // Check if error is transient (503, 429, UNAVAILABLE, high demand)
+        const isTransient = 
+          errStr.includes("503") || 
+          errStr.includes("429") || 
+          errStr.includes("UNAVAILABLE") || 
+          errStr.includes("demand") ||
+          errStr.includes("temporary");
+          
+        if (isTransient) {
+          if (attempt < 2) {
+            // Wait 1-2 seconds with simple backoff
+            await new Promise((resolve) => setTimeout(resolve, 1000 * attempt));
+            continue;
+          }
+        } else {
+          // If it is a non-transient error, switch models immediately
+          break;
+        }
+      }
+    }
+  }
+
+  throw lastError || new Error("Failed to generate content with all available models.");
+}
+
 // API route for Gemini study spot reviews summarization
 app.post("/api/gemini/summarize", async (req, res) => {
   const { spotName, reviews } = req.body;
@@ -64,12 +110,9 @@ app.post("/api/gemini/summarize", async (req, res) => {
 Reviews:
 ${reviewsText}`;
 
-    const response = await ai.models.generateContent({
-      model: "gemini-3.5-flash",
-      contents: prompt,
-    });
+    const summaryText = await generateWithFallback(ai, prompt);
 
-    res.json({ summary: response.text || "Unable to consolidate reviews." });
+    res.json({ summary: summaryText || "Unable to consolidate reviews." });
   } catch (err: any) {
     console.error("Error generating Gemini summary:", err);
     res.json({

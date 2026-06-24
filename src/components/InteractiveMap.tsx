@@ -102,65 +102,65 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
           {/* Tulane Green Parks and Quads (Vector shapes) */}
           {/* Newcomb Quad (LHS, Lower Campus) */}
-          <rect x="15" y="55" width="25" height="30" rx="3" fill="#d1fae5" opacity="0.6" stroke="#a7f3d0" strokeWidth="0.3" />
-          <text x="27" y="70" className="fill-emerald-800/50 font-sans font-medium text-[2.2px] text-center pointer-events-none">
+          <rect x="15" y="62" width="22" height="24" rx="3" fill="#d1fae5" opacity="0.6" stroke="#a7f3d0" strokeWidth="0.3" />
+          <text x="21" y="74" className="fill-emerald-800/50 font-sans font-medium text-[2.2px] text-center pointer-events-none">
             Newcomb Quad
           </text>
 
           {/* Gibson Quad / Lawn (RHS, Lower Campus) */}
-          <rect x="60" y="55" width="25" height="30" rx="3" fill="#d1fae5" opacity="0.6" stroke="#a7f3d0" strokeWidth="0.3" />
-          <text x="70" y="70" className="fill-emerald-800/50 font-sans font-medium text-[2.2px] pointer-events-none">
+          <rect x="52" y="65" width="38" height="22" rx="3" fill="#d1fae5" opacity="0.6" stroke="#a7f3d0" strokeWidth="0.3" />
+          <text x="65" y="76" className="fill-emerald-800/50 font-sans font-medium text-[2.2px] pointer-events-none">
             Gibson Lawn
           </text>
 
           {/* Academic Buildings Outlines (Graphic placeholders) */}
           {/* Howard Tilton Library Building */}
-          <rect x="30" y="28" width="16" height="13" rx="1.5" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
-          <text x="31" y="34" className="fill-slate-500 font-sans text-[1.8px] font-bold">Howard-Tilton</text>
-          <text x="31" y="37" className="fill-slate-400 font-sans text-[1.5px]">Library (Howie-T)</text>
+          <rect x="20" y="30" width="13" height="12" rx="1.5" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
+          <text x="21" y="35" className="fill-slate-500 font-sans text-[1.5px] font-bold">Howard-Tilton</text>
+          <text x="21" y="38" className="fill-slate-400 font-sans text-[1.2px]">Library (Howie-T)</text>
 
           {/* Student Union Building / LBC */}
-          <rect x="52" y="32" width="15" height="12" rx="1.5" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
-          <text x="54" y="38" className="fill-slate-500 font-sans text-[1.8px] font-bold">Lavin-Bernick</text>
-          <text x="54" y="41" className="fill-slate-400 font-sans text-[1.5px]">Center (LBC)</text>
+          <rect x="36" y="30" width="12" height="12" rx="1.5" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
+          <text x="37" y="35" className="fill-slate-500 font-sans text-[1.5px] font-bold">Lavin-Bernick</text>
+          <text x="37" y="38" className="fill-slate-400 font-sans text-[1.2px]">Center (LBC)</text>
 
           {/* The Commons Building */}
-          <rect x="52" y="16" width="15" height="11" rx="1.5" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
-          <text x="54" y="21" className="fill-slate-500 font-sans text-[1.8px] font-bold">The Commons</text>
-          <text x="54" y="24" className="fill-slate-400 font-sans text-[1.5px]">Dining & Study</text>
-
-          {/* Stern Science Center */}
-          <rect x="20" y="18" width="14" height="8" rx="1.5" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
-          <text x="22" y="23" className="fill-slate-500 font-sans text-[1.8px] font-bold">Stern Hall</text>
+          <rect x="52" y="30" width="12" height="12" rx="1.5" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
+          <text x="53" y="35" className="fill-slate-500 font-sans text-[1.5px] font-bold">The Commons</text>
+          <text x="53" y="38" className="fill-slate-400 font-sans text-[1.2px]">Dining & Study</text>
 
           {/* Business Complex AB Freeman */}
-          <rect x="71" y="22" width="16" height="12" rx="1.5" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
-          <text x="73" y="28" className="fill-slate-500 font-sans text-[1.8px] font-bold">Freeman School</text>
-          <text x="73" y="31" className="fill-slate-400 font-sans text-[1.5px]">of Business</text>
+          <rect x="67" y="30" width="14" height="12" rx="1.5" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
+          <text x="68" y="35" className="fill-slate-500 font-sans text-[1.5px] font-bold">Freeman School</text>
+          <text x="68" y="38" className="fill-slate-400 font-sans text-[1.2px]">of Business</text>
+
+          {/* Stern Science Center */}
+          <rect x="22" y="16" width="14" height="8" rx="1.5" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
+          <text x="23" y="21" className="fill-slate-500 font-sans text-[1.5px] font-bold">Stern Hall</text>
+
+          {/* Greenbaum Residence Hall */}
+          <rect x="8" y="16" width="10" height="9" rx="1.5" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
+          <text x="9" y="21" className="fill-slate-500 font-sans text-[1.4px] font-bold">Greenbaum</text>
 
           {/* Newcomb Hall */}
-          <rect x="22" y="58" width="12" height="6" rx="1" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
-          <text x="24" y="62" className="fill-slate-500 font-sans text-[1.8px] font-bold">Newcomb Hall</text>
+          <rect x="20" y="52" width="12" height="6" rx="1" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
+          <text x="21" y="56" className="fill-slate-500 font-sans text-[1.5px] font-bold">Newcomb Hall</text>
 
           {/* Richardson Memorial Hall */}
-          <rect x="22" y="74" width="14" height="7" rx="1" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
-          <text x="23" y="78" className="fill-slate-500 font-sans text-[1.8px] font-bold">Richardson Hall</text>
-          <text x="23" y="80" className="fill-slate-400 font-sans text-[1.3px]">Architecture School</text>
+          <rect x="52" y="56" width="10" height="8" rx="1" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
+          <text x="53" y="61" className="fill-slate-500 font-sans text-[1.3px] font-bold">Richardson Hall</text>
 
           {/* Jones Hall */}
-          <rect x="73" y="58" width="13" height="7" rx="1" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
-          <text x="74" y="62" className="fill-slate-500 font-sans text-[1.8px] font-bold">Jones Hall</text>
-          <text x="74" y="64" className="fill-slate-400 font-sans text-[1.3px]">Special Collections</text>
+          <rect x="78" y="56" width="12" height="8" rx="1" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
+          <text x="79" y="61" className="fill-slate-500 font-sans text-[1.5px] font-bold">Jones Hall</text>
 
           {/* Reily Student Recreation Center */}
-          <rect x="69" y="8" width="13" height="7" rx="1" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
-          <text x="70" y="12" className="fill-slate-500 font-sans text-[1.8px] font-bold">Reily Rec Center</text>
-          <text x="70" y="14" className="fill-slate-400 font-sans text-[1.3px]">Gym & Lounge</text>
+          <rect x="67" y="12" width="14" height="8" rx="1" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
+          <text x="68" y="17" className="fill-slate-500 font-sans text-[1.5px] font-bold">Reily Rec Center</text>
 
           {/* Weinmann Hall (Law School) */}
-          <rect x="84" y="12" width="13" height="8" rx="1" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
-          <text x="85" y="16" className="fill-slate-500 font-sans text-[1.8px] font-bold">Weinmann Hall</text>
-          <text x="85" y="18" className="fill-slate-400 font-sans text-[1.3px]">Tulane Law Library</text>
+          <rect x="84" y="12" width="11" height="8" rx="1" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="0.4" />
+          <text x="85" y="17" className="fill-slate-500 font-sans text-[1.5px] font-bold">Weinmann Hall</text>
         </svg>
 
         {/* Floating Pins Layer */}
