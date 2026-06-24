@@ -12,7 +12,7 @@ The Tulane Study Spot Finder is an interactive, full-stack web application desig
 *   **Gemini AI Review Summaries**: Integrates Google’s Gemini 3.5 Flash model server-side to synthesize student reviews, providing a clean 3-bullet summary of student feedback with one click.
 *   **Safe OTP Student Authentication**: Features a safe email-based One-Time Password (OTP) verification flow to register or sign in securely without requiring traditional passwords.
 *   **Student Spot Suggestions**: Allows logged-in students to suggest new campus study spaces, complete with descriptive metrics and building locations.
-*   **Flexible Offline-First Fallback**: Fully functional locally with browser storage persistence when no database connection is configured, enabling easy evaluation.
+*   **Flexible Offline Fallback**: Fully functional locally with browser storage persistence when no database connection is configured, enabling easy evaluation.
 
 ---
 
@@ -25,79 +25,20 @@ The Tulane Study Spot Finder is an interactive, full-stack web application desig
 
 ---
 
-## 🚀 Basic Setup & Local Running
+## 🚀 Environment Variables
 
-1.  **Install dependencies**:
-    ```bash
-    npm install
-    ```
-2.  **Configure environment variables**:
-    Create a `.env` file in the root directory:
-    ```env
-    GEMINI_API_KEY="your-google-gemini-api-key"
-    VITE_SUPABASE_URL="https://your-project-id.supabase.co"
-    VITE_SUPABASE_ANON_KEY="your-supabase-anonymous-key"
-    ```
-3.  **Run in development mode**:
-    ```bash
-    npm run dev
-    ```
-    Open `http://localhost:3000` to preview.
-4.  **Build and Start in production**:
-    ```bash
-    npm run build
-    npm run start
-    ```
+Create a `.env` file in the root directory to configure database sync and AI summaries:
 
----
+```env
+# Google Gemini API
+GEMINI_API_KEY="your-google-gemini-api-key"
 
-## ⚙️ Developer Setup & Supabase Setup
-
-### Database Schema Setup
-To configure Supabase PostgreSQL tables, run the following SQL statements in your Supabase SQL Editor:
-
-```sql
--- 1. Create student reviews table
-CREATE TABLE IF NOT EXISTS reviews (
-  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  spot_id text NOT NULL,
-  user_email text NOT NULL,
-  user_name text NOT NULL,
-  rating integer NOT NULL CHECK (rating >= 1 AND rating <= 5),
-  comment text NOT NULL,
-  quiet_level text NOT NULL,
-  outlets text NOT NULL,
-  created_at timestamp with time zone DEFAULT timezone('utc'::text, now()) NOT NULL
-);
-
--- 2. Create student favorites table
-CREATE TABLE IF NOT EXISTS favorites (
-  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id uuid NOT NULL,
-  spot_id text NOT NULL,
-  created_at timestamp with time zone DEFAULT timezone('utc'::text, now()) NOT NULL,
-  UNIQUE(user_id, spot_id)
-);
-
--- 3. Create spot suggestions table
-CREATE TABLE IF NOT EXISTS suggested_spots (
-  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  name text NOT NULL,
-  building text NOT NULL,
-  description text NOT NULL,
-  quiet_level text NOT NULL,
-  outlets text NOT NULL,
-  wifi_quality text NOT NULL,
-  open_late boolean DEFAULT false NOT NULL,
-  food_nearby boolean DEFAULT false NOT NULL,
-  user_email text NOT NULL,
-  created_at timestamp with time zone DEFAULT timezone('utc'::text, now()) NOT NULL
-);
+# Supabase Credentials
+VITE_SUPABASE_URL="https://pvyqtinbbncoybsggrqq.supabase.co"
+VITE_SUPABASE_ANON_KEY="sb_publishable_yAdzL2AvhnYoPeRtdJpQ8Q_hERS-WTc"
 ```
 
-### Environment Variable Configurations
-*   **`GEMINI_API_KEY`**: Server-only secret key to enable AI reviews summarization features.
-*   **`VITE_SUPABASE_URL` & `VITE_SUPABASE_ANON_KEY`**: Public client variables used to connect to your Supabase project. If left empty, the application runs in local demo fallback mode using browser storage.
+*Note: If no Supabase environment variables are provided, the application automatically runs in demo mode using browser local storage.*
 
 ---
 
