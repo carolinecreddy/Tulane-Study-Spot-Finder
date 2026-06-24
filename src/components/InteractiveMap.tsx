@@ -171,9 +171,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
   }, [selectedSpot]);
 
   return (
-    <div className="relative w-full h-[360px] md:h-[500px] bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col">
+    <div className="relative z-10 w-full h-[360px] md:h-[500px] bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col">
       {/* Map Header / Indicators overlay */}
-      <div className="absolute top-4 left-4 z-[1000] bg-white/95 backdrop-blur-md border border-slate-200 rounded-xl px-3 py-2 flex items-center gap-2 pointer-events-none shadow-sm">
+      <div className="absolute top-4 left-4 z-20 bg-white/95 backdrop-blur-md border border-slate-200 rounded-xl px-3 py-2 flex items-center gap-2 pointer-events-none shadow-sm">
         <Compass className="w-4 h-4 text-emerald-700 animate-spin-slow" />
         <span className="font-sans font-semibold text-xs text-slate-800 uppercase tracking-wider">
           Live Tulane Uptown Campus Map
@@ -181,7 +181,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({
       </div>
 
       {/* Map Legend Overlay */}
-      <div className="absolute bottom-4 left-4 z-[1000] bg-white/95 backdrop-blur-md border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 text-[10px] text-slate-600 font-mono shadow-sm pointer-events-auto">
+      <div className="absolute bottom-4 left-4 z-20 bg-white/95 backdrop-blur-md border border-slate-200 rounded-xl p-3 flex flex-col gap-1.5 text-[10px] text-slate-600 font-mono shadow-sm pointer-events-auto">
         <div className="font-semibold text-slate-800 border-b border-slate-100 pb-1 mb-1">MAP LEGEND</div>
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 bg-emerald-700 rounded-full inline-block border border-white shadow-sm"></span>
